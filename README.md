@@ -1,5 +1,9 @@
 # REI3 dockerfile
-Central repo for the REI3 dockerfile.
+Central repo for running REI3 in docker. It includes:
+* A dockerfile to get a working REI3 image.
+* Docker compose files for x64 and arm64 architectures to get a fully contained REI3 system up and running.
+
+This docker release has been designed for development and testing purposes. Please do not use this configuration for running REI3 in production.
 
 ## How to use
 1. Make sure that docker & docker compose are available on your system. 
