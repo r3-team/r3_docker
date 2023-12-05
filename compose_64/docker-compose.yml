@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
     r3_db:
-        container_name: r${R3_VERSION:-3.2}_db
+        container_name: r${R3_VERSION:-3.6}_db
         environment:
             POSTGRES_PASSWORD: app
             POSTGRES_USER: app
@@ -16,10 +16,10 @@ services:
             args:
                 r3_db_host: r3_db
                 r3_os_arch: x64
-                r3_version: ${R3_VERSION:-3.2}
+                r3_version: ${R3_VERSION:-3.6}
                 im_policy: /etc/ImageMagick-6/policy.xml
-        container_name: r${R3_VERSION:-3.2}_app
-        image: "r3/${R3_VERSION:-3.2}"
+        container_name: r${R3_VERSION:-3.6}_app
+        image: "r3/${R3_VERSION:-3.6}"
         depends_on:
             - r3_db
         ports:
