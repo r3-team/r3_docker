@@ -7,6 +7,7 @@ ARG r3_db_host
 ARG r3_os_arch
 ARG r3_version
 ARG im_policy
+ARG db_pass
 
 # setup environment
 # * Create directories: App + data 
@@ -28,6 +29,7 @@ ADD https://rei3.de/downloads/REI3_${r3_version}_${r3_os_arch}_linux.tar.gz .
 RUN tar -xvf REI3_${r3_version}_${r3_os_arch}_linux.tar.gz r3 config_template.json \
 	&& sed -i "s/localhost/${r3_db_host}/g" config_template.json \
 	&& sed -i "s/443/80/g" config_template.json \
+	&& sed -i "s/\"pass\": \"app\"/\"pass\": \"${db_pass}\"/g" config_template.json \
 	&& chmod 755 r3 && chmod 644 config_template.json \
 	&& rm REI3_${r3_version}_${r3_os_arch}_linux.tar.gz
 
