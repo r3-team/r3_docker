@@ -14,14 +14,20 @@ This Docker release has been designed for development and testing purposes. Plea
    * By default, you can access REI3 at `http://localhost:14000`
    * Default username/password are both `admin`
 
+## Environment parameters
+* R3_VERSION: Which REI3 version to run.
+* R3_DB_NAME: Name of the PostgreSQL DB.
+* R3_DB_USER: Name of the PostgreSQL role.
+* R3_DB_PASS: Passwort of the PostgreSQL role.
+
 ## How to run an older version of REI3
 Set the environment variable R3_VERSION to the version you desire before running `docker compose up`. Examples:
 * Linux
+  * export R3_VERSION=3.7.3
   * export R3_VERSION=3.5.4
-  * export R3_VERSION=3.3.5
 * Windows
+  * SET R3_VERSION=3.7.3
   * SET R3_VERSION=3.5.4
-  * SET R3_VERSION=3.3.5
 
 The chosen version must be available on [rei3.de](https://rei3.de/en/downloads) under `all releases`.
 
