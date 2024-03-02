@@ -2,10 +2,11 @@ version: '3.3'
 
 services:
     r3_db:
-        container_name: r${R3_VERSION:-3.6.2}_db
+        container_name: r${R3_VERSION:-3.7.3}_db
         environment:
-            POSTGRES_PASSWORD: app
-            POSTGRES_USER: app
+            POSTGRES_DB: ${R3_DB_NAME:app}
+            POSTGRES_USER: ${R3_DB_USER:app}
+            POSTGRES_PASSWORD: ${R3_DB_PASS:app}
         image: postgres:latest
         restart: always
         volumes:
@@ -14,12 +15,15 @@ services:
         build:
             context: https://github.com/r3-team/r3_docker.git#main
             args:
+                r3_version: ${R3_VERSION:-3.7.3}
                 r3_db_host: r3_db
+                r3_db_name: ${R3_DB_NAME:app} # replace 'app' with your preferred name
+                r3_db_user: ${R3_DB_USER:app} # replace 'app' with your preferred user
+                r3_db_pass: ${R3_DB_PASS:app} # replace 'app' with your preferred pass
                 r3_os_arch: arm64
-                r3_version: ${R3_VERSION:-3.6.2}
                 im_policy: /etc/ImageMagick-6/policy.xml
-        container_name: r${R3_VERSION:-3.6.2}_app
-        image: "r3/${R3_VERSION:-3.6.2}"
+        container_name: r${R3_VERSION:-3.7.3}_app
+        image: "r3/${R3_VERSION:-3.7.3}"
         depends_on:
             - r3_db
         ports:
