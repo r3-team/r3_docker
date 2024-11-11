@@ -1,7 +1,6 @@
-# REI3 Development & Testing dockerfile
-# Build by Gabriel Herbert (Lean Softworks GmbH)
-# Do not run in production!
-FROM debian:stable-slim
+# REI3 development & testing dockerfile - do not use in production
+# Prepared by Gabriel Herbert (Lean Softworks GmbH)
+FROM ubuntu:24.10
 
 ARG r3_db_host
 ARG r3_db_name

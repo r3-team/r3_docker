@@ -5,7 +5,7 @@ services:
             POSTGRES_DB: ${R3_DB_NAME:-app}
             POSTGRES_USER: ${R3_DB_USER:-app}
             POSTGRES_PASSWORD: ${R3_DB_PASS:-app}
-        image: postgres:latest
+        image: postgres:16
         restart: always
         volumes:
             - data_db:/var/lib/postgresql/data
