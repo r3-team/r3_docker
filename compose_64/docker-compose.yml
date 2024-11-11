@@ -28,6 +28,7 @@ services:
             - r3_db
         ports:
             - "14000:80"
+        pull_policy: never
         restart: always
         volumes:
             - data_app:/opt/r3/data
