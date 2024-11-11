@@ -1,6 +1,6 @@
 services:
     r3_db:
-        container_name: r${R3_VERSION:-3.9.1}_db
+        container_name: r${R3_VERSION:-3.9.2}_db
         environment:
             POSTGRES_DB: ${R3_DB_NAME:-app}
             POSTGRES_USER: ${R3_DB_USER:-app}
@@ -13,14 +13,14 @@ services:
         build:
             context: https://github.com/r3-team/r3_docker.git#main
             args:
-                r3_version: ${R3_VERSION:-3.9.1}
+                r3_version: ${R3_VERSION:-3.9.2}
                 r3_db_host: r3_db
                 r3_db_name: ${R3_DB_NAME:-app}
                 r3_db_user: ${R3_DB_USER:-app}
                 r3_db_pass: ${R3_DB_PASS:-app}
                 r3_os_arch: arm64
                 im_policy: /etc/ImageMagick-6/policy.xml
-        container_name: r${R3_VERSION:-3.9.1}_app
+        container_name: r${R3_VERSION:-3.9.2}_app
         image: r3:${R3_VERSION:-3.9.2}
         depends_on:
             - r3_db
