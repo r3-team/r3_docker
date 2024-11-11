@@ -21,7 +21,7 @@ services:
                 r3_os_arch: x64
                 im_policy: /etc/ImageMagick-6/policy.xml
         container_name: r${R3_VERSION:-3.9.1}_app
-        image: "r3/${R3_VERSION:-3.9.1}"
+        image: r3:${R3_VERSION:-3.9.2}
         depends_on:
             - r3_db
         ports:
