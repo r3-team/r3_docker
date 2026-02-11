@@ -1,6 +1,6 @@
 # REI3 development & testing dockerfile - do not use in production
 # Prepared by Gabriel Herbert (Lean Softworks GmbH)
-FROM ubuntu:24.10
+FROM ubuntu:25.04
 
 ARG r3_db_host
 ARG r3_db_name
